@@ -1,0 +1,12 @@
+On Running lshw
+  *-usb:0
+      description: Communication device
+      product: ES&S PEB Cradle -w- USB Interface
+      vendor: Election Systems and Software
+      physical id: 2
+      bus info: usb@1:2
+      version: 0.00
+      capabilities: usb-2.00
+      configuration: driver=cdc_acm maxpower=100mA speed=12Mbit/s
+
+More coming... Need to figure out how to talk to this thing.
