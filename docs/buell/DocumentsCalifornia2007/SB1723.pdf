@@ -1,281 +1,0 @@
-%PDF-1.4%‚„œ”
-1 0 obj<< /Type /Page /Parent 7 0 R /Resources 3 0 R /Contents 2 0 R >> endobj2 0 obj<< /Length 5813 >> stream
-q
-1 i 
-18 8 576 776 re
-W n
-BT
-/TT2 1 Tf
-12 0 0 12 18 784 Tm
-0 g
-/GS2 gs
-0 Tc
-0 Tw
-( )Tj
-ET
-Q
-BT
-/TT2 1 Tf
-12 0 0 12 108 712 Tm
-0 0 0 1 k
-/GS2 gs
-0 Tc
-0 Tw
-(My name is Matt Bishop. I am an associate professor in the Department of Computer Sci-)Tj
--3 -1.1667 TD
-[(ence at the Uni)25.2(v)15.2(ersity of California in Da)20(vis. I do research in computer security)65.2(, especially in the )]TJ
-T*
-[(area of vulnerabilities. I ha)20(v)15.2(e)0( been in)40(v)20(olv)15.2(ed in numerous analyses of the security of systems. I )]TJ
-T*
-[(w)10(as part of the group that RAB)35.2(A )18.1(T)70.1(echnologyí)55.2(s Inno)15.2(v)25.2(ati)25.2(v)15.2(e)0( Solution Cell assembled to perform a )]TJ
-T*
-[(ìRed )18.1(T)70.1(eamî e)15.2(x)15.2(ercise to disco)15.2(v)15.2(er vulnerabilities in the v)20(oting systems that were to be used in the )]TJ
-T*
-[(State of Maryland. )30(W)80.1(e)0( found man)15.2(y)65.2(.)]TJ
-3 -1.6667 TD
-[(In my vie)25.2(w)65.2(,)0( the k)10(e)15.2(y f)10(actor in the question of whether to use DRE systems is: do DRE sys-)]TJ
--3 -1.1667 TD
-[(tems add to the set of e)15.2(xisting vulnerabilities in the election process? )18.1(The election process is vul-)]TJ
-T*
-(nerable with or without DRE systems. Dishonest people can rig or steal elections that use non-)Tj
-T*
-(electronic technology such as punch cards. But there are procedural mechanisms in place to pro-)Tj
-T*
-[(tect ag)5.2(ainst these thefts. F)15.2(or e)15.2(xample, in California, the optical scanners are v)25.2(alidated by hand )]TJ
-T*
-[(counts of some portion of the v)20(otes. Observ)15.2(ers can w)10(atch this process. )30(When ballot box)15.2(es are )]TJ
-T*
-[(mo)15.2(v)15.2(ed to the clerk recorderí)55.2(s of)]TJ
-/TT3 1 Tf
-12.7448 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(ce, observ)15.2(ers can ride along to be sure the box)15.2(es are not )]TJ
--13.301 -1.1667 TD
-[(switched. )18.1(The only part of the election that cannot be observ)15.2(ed is the indi)25.2(vidual citizen v)20(oting in )]TJ
-T*
-[(the booth. So this procedural mechanism, pro)15.2(viding the opportunity for the public to w)10(atch each )]TJ
-T*
-[(step of the election process, does well in k)10(eeping elections honest.)]TJ
-3 -1.6667 TD
-[(DRE systems do not of)25.2(fer this same opportunity)65.2(. )18.1(The problem is that the public cannot )]TJ
--3 -1.1667 TD
--0.0276 Tw
-[(w)10(atch and e)25.2(v)25.2(aluate each step of the de)25.2(v)15.2(elopment and implementation of the DRE systems. )30(W)80.1(orse, )]TJ
-T*
-0 Tw
-[(there is no proof that the DRE systems w)10(ork correctly)65.2(. )18.1(There is e)25.2(vidence, b)20(ut the e)25.2(vidence is f)10(ar )]TJ
-T*
-[(from con)40(vincing. Let me e)15.2(xplain this in more detail.)]TJ
-3 -1.6667 TD
--0.0059 Tw
-[(Underlying e)25.2(v)15.2(ery computer system, including DREs, is a set of assumptions. )18.1(The assump-)]TJ
--3 -1.1667 TD
--0.0306 Tw
-[(tions may be as simple as trusting the users not to alter information, or as comple)15.2(x as trusting a set )]TJ
-T*
--0.0012 Tw
-[(of programs to w)10(ork correctly under all circumstances. In computer security)65.2(, we analyze systems )]TJ
-T*
-0 Tw
-(to )Tj
-/TT3 1 Tf
-1.0278 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(nd the assumptions the)15.2(y are making, and then ask, ìWhat if this assumption is wrong?î)]TJ
-1.416 -1.6667 TD
-[(As an e)15.2(xample, the Diebold DRE system assumes that the order in which the candidate )]TJ
--3 -1.1667 TD
--0.035 Tw
-(names are loaded onto the ballot in the DRE is the same as the order of the candidate names on the )Tj
-T*
-0 Tw
-[(serv)15.2(er on which the v)20(otes are counted. But what happens if the order is not the same? )18.1(Then )]TJ
-T*
-[(Geor)18.1(ge )30(W)80.1(ashington, candidate #1 on the serv)15.2(er)40(, w)10(ould get the v)20(otes intended for John )55.2(Adams, )]TJ
-T*
-(candidate #1 on the DRE ballot. So, we ask if it is possible to switch the order of the candidates, )Tj
-T*
-[(or if the softw)10(are can be trick)10(ed into doing this.)]TJ
-3 -1.6667 TD
-[(As another e)15.2(xample, that DRE system assumes that only authorized maintainers of the )]TJ
--3 -1.1667 TD
-[(system w)10(ould enter administrati)25.2(v)15.2(e)0( mode on the DRE. )18.1(The v)15.2(endor lock)10(ed the connector for the )]TJ
-T*
--0.0138 Tw
-[(k)10(e)15.2(yboard in a compartment on the system. )18.1(The assumptions are that only the authorized maintain-)]TJ
-T*
--0.0353 Tw
-[(ers w)10(ould be able to open the lock, and only the authorized maintainers w)10(ould hook a k)10(e)15.2(yboard up )]TJ
-T*
-0 Tw
-[(to the port to obtain administrati)25.2(v)15.2(e)0( mode. But the lock took under 10 seconds to pick with an of)25.2(f-)]TJ
-T*
-[(the-shelf lock picking kit, and a k)10(e)15.2(yboard could be concealed in a long slee)25.2(v)15.2(ed shirt. )55.2(As a result, )]TJ
-T*
-[(in our test, we were able to enter administrati)25.2(v)15.2(e)0( mode in under 20 seconds, and could ha)20(v)15.2(e)0( )]TJ
-T*
-[(switched v)20(ote totals between tw)10(o candidates. )18.1(This w)10(ould not be detectable using an)15.2(y procedural )]TJ
-T*
-[(mechanisms, as the aggre)15.2(g)5.2(ate total of v)20(otes w)10(ould be unchanged.)]TJ
-3 -1.6667 TD
-[(In order to determine if a system is w)10(orking correctly)65.2(, we need to kno)25.2(w the requirements, )]TJ
--3 -1.1667 TD
--0.0094 Tw
-[(which articulate man)15.2(y of the rele)25.2(v)25.2(ant assumptions. )30(W)80.1(e)0( translate these requirements into speci)]TJ
-/TT3 1 Tf
-37.2266 0 TD
-0 Tw
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-(ca-)Tj
--37.7827 -1.1667 TD
-[(tions that the system must meet, and design the system. )30(W)80.1(e)0( then either pro)15.2(v)15.2(e)0( mathematically or)40(, )]TJ
-T*
-[(more commonly)65.2(, ar)18.1(gue con)40(vincingly that the design meets the speci)]TJ
-/TT3 1 Tf
-27.0916 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(cation. Hereí)55.2(s the )]TJ
-/TT3 1 Tf
-7.2749 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-(rst prob-)Tj
-ET
-endstreamendobj3 0 obj<< /ProcSet [ /PDF /Text ] /Font << /TT2 4 0 R /TT3 5 0 R >> /ExtGState << /GS2 6 0 R >> >> endobj4 0 obj<< /Type /Font /Subtype /TrueType /FirstChar 32 /LastChar 148 /Widths [ 250 0 0 500 0 0 0 0 0 0 0 0 250 333 250 0 500 500 500 0 0 0 0 0 0 0 278 278 0 0 0 444 0 722 667 667 722 611 556 722 722 333 389 0 611 889 0 722 0 0 667 556 611 722 0 944 0 0 0 0 0 0 0 0 0 444 500 444 500 444 333 500 500 278 0 500 278 778 500 500 500 500 333 389 278 500 500 722 500 500 444 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 333 444 444 ] /Encoding /WinAnsiEncoding /BaseFont /Times-Roman /FontDescriptor 11 0 R >> endobj5 0 obj<< /Type /Font /Subtype /TrueType /FirstChar 222 /LastChar 222 /Widths [ 556 ] /Encoding /MacRomanEncoding /BaseFont /Times-Roman /FontDescriptor 12 0 R >> endobj6 0 obj<< /Type /ExtGState /SA true /SM 0.02 /OP false /op false /OPM 1 /BG2 /Default /UCR2 /Default /HT /Default /TR2 /Default >> endobj7 0 obj<< /Type /Pages /Kids [ 1 0 R 8 0 R ] /Count 2 /MediaBox [ 0 0 612 792 ] >> endobj8 0 obj<< /Type /Page /Parent 7 0 R /Resources 10 0 R /Contents 9 0 R >> endobj9 0 obj<< /Length 3658 >> stream
-q
-1 i 
-18 8 576 776 re
-W n
-BT
-/TT2 1 Tf
-12 0 0 12 21 784 Tm
-0 g
-/GS2 gs
-0 Tc
-0 Tw
-( )Tj
-ET
-Q
-BT
-/TT2 1 Tf
-12 0 0 12 72 712 Tm
-0 0 0 1 k
-/GS2 gs
-0 Tc
-0 Tw
-[(lem: what is ìcon)40(vincingî to you may not be ìcon)40(vincingî to me, and we both probably ha)20(v)15.2(e)0( dif-)]TJ
-0 -1.1667 TD
-[(ferent ideas than man)15.2(y of the public. So who do we ha)20(v)15.2(e)0( to con)40(vince? )18.1(The second problem is the )]TJ
-T*
-(conditions under which the system is used. If those conditions do not match the ones in the speci-)Tj
-/TT3 1 Tf
-T*
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(cations, your system may not do what you w)10(ant. It w)10(ould be lik)10(e the old Groucho Marx line )]TJ
--0.5562 -1.1667 TD
-[(about a doctor in)40(v)15.2(enting a cure for which there w)10(as no disease.)]TJ
-3 -1.6667 TD
-[(After all this, we need to b)20(uild the system: program it and add the needed hardw)10(are. )18.1(This )]TJ
--3 -1.1667 TD
--0.0143 Tw
-[(step is not susceptible to mathematical proof because the task is simply too comple)15.2(x. So, we ha)20(v)15.2(e)0( )]TJ
-T*
-0 Tw
-[(to ar)18.1(gue con)40(vincingly that the implementation matches the design. Here, we rely not only on the )]TJ
-T*
-[(DRE softw)10(are, b)20(ut also on the underlying softw)10(are that manages the computer: the operating sys-)]TJ
-T*
-[(tem and its supporting softw)10(are. Finally)65.2(, the system is tested and )]TJ
-/TT3 1 Tf
-26.0601 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(elded. But ag)5.2(ain, the testing is )]TJ
--26.6162 -1.1667 TD
-[(ne)25.2(v)15.2(er complete; parts of the system simply are not e)15.2(x)15.2(ercised.)]TJ
-3 -1.6667 TD
--0.0233 Tw
-[(There are special techniques of design and de)25.2(v)15.2(elopment, called ìhigh assuranceî, that aim )]TJ
--3 -1.1667 TD
-0 Tw
-[(to pro)15.2(vide the amount and quality of e)25.2(vidence for independent analysts to v)25.2(alidate the system. I )]TJ
-T*
-[(am not a)15.2(w)10(are of the e)15.2(xistence of an)15.2(y such e)25.2(vidence for DREs; indeed, the)15.2(y are b)20(uilt using stan-)]TJ
-T*
-[(dard softw)10(are engineering techniques that do not of)25.2(fer this con)40(vincing e)25.2(vidence. I am a)15.2(w)10(are of )]TJ
-T*
--0.0097 Tw
-[(e)25.2(vidence gleaned through testing, b)20(ut that e)25.2(vidence tests only the end product, and a small part of )]TJ
-T*
-0 Tw
-[(that, in limited w)10(ays. )18.1(The de)25.2(v)15.2(elopment process must be f)10(ar more rigorous than it appears to be, )]TJ
-T*
-[(and e)25.2(vidence of high assurance must be public. )]TJ
-3 -1.6667 TD
-[(T)80.1(o)0( summarize: the goal of a DRE is to record v)20(otes accurately)65.2(, to protect v)20(oter pri)25.2(v)25.2(a)0(c)15.2(y)65.2(, )]TJ
--3 -1.1667 TD
-[(and to pro)15.2(vide a mechanism to enable the v)15.2(eri)]TJ
-/TT3 1 Tf
-18.4077 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-[(cation of both these f)10(acets of v)20(oting. )18.1(The current )]TJ
--18.9638 -1.1667 TD
--0.0131 Tw
-[(state of the art does not pro)15.2(vide these mechanisms. DRE systems are vulnerable to attack, f)10(ailure, )]TJ
-T*
--0.0222 Tw
-[(and inadv)15.2(ertent error)55.2(. Because the only record of v)20(otes DRE systems ha)20(v)15.2(e)0( is in their memory)65.2(, and )]TJ
-T*
-0 Tw
-[(that memory can be changed by attack, f)10(ailure of the system, or inadv)15.2(ertent error)40(, there must be )]TJ
-T*
-[(some w)10(ay to v)25.2(alidate the results independent of the representation of the v)20(otes in the DRE sys-)]TJ
-T*
-[(tems. In California, that will require a trail that v)20(oters can use to check that their v)20(otes are accu-)]TJ
-T*
-(rately recorded, and that election of)Tj
-/TT3 1 Tf
-14.1902 0 TD
-(ﬁ)Tj
-/TT2 1 Tf
-0.5562 0 TD
-(cials can use to determine the results of the election.)Tj
-ET
-endstreamendobj10 0 obj<< /ProcSet [ /PDF /Text ] /Font << /TT2 4 0 R /TT3 5 0 R >> /ExtGState << /GS2 6 0 R >> >> endobj11 0 obj<< /Type /FontDescriptor /Ascent 750 /CapHeight 662 /Descent -250 /Flags 34 /FontBBox [ -168 -218 1000 898 ] /FontName /Times-Roman /ItalicAngle 0 /StemV 84 /XHeight 450 /StemH 84 >> endobj12 0 obj<< /Type /FontDescriptor /Ascent 750 /CapHeight 662 /Descent -250 /Flags 34 /FontBBox [ -168 -218 1000 898 ] /FontName /Times-Roman /ItalicAngle 0 /StemV 84 /XHeight 450 /StemH 84 >> endobj13 0 obj<< /S /D >> endobj14 0 obj<< /Nums [ 0 13 0 R ] >> endobj15 0 obj<< /CreationDate (D:20040504221148-07'00')/ModDate (D:20040507062305-07'00')/Producer (PSNormalizer.framework)>> endobj16 0 obj<< /Type /Catalog /Pages 7 0 R /PageLabels 14 0 R /Metadata 18 0 R >> endobj18 0 obj<< /Type /Metadata /Subtype /XML /Length 824 >> stream
-<?xpacket begin='' id='W5M0MpCehiHzreSzNTczkc9d' bytes='824'?>
-
-<rdf:RDF xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
- xmlns:iX='http://ns.adobe.com/iX/1.0/'>
-
- <rdf:Description about=''
-  xmlns='http://ns.adobe.com/pdf/1.3/'
-  xmlns:pdf='http://ns.adobe.com/pdf/1.3/'>
-  <pdf:CreationDate>2004-05-04T22:11:48-07:00</pdf:CreationDate>
-  <pdf:ModDate>2004-05-07T06:23:05-07:00</pdf:ModDate>
-  <pdf:Producer>PSNormalizer.framework</pdf:Producer>
- </rdf:Description>
-
- <rdf:Description about=''
-  xmlns='http://ns.adobe.com/xap/1.0/'
-  xmlns:xap='http://ns.adobe.com/xap/1.0/'>
-  <xap:CreateDate>2004-05-04T22:11:48-07:00</xap:CreateDate>
-  <xap:ModifyDate>2004-05-07T06:23:05-07:00</xap:ModifyDate>
-  <xap:MetadataDate>2004-05-07T06:23:05-07:00</xap:MetadataDate>
- </rdf:Description>
-
-</rdf:RDF>
-<?xpacket end='r'?>endstreamendobjxref0 19 0000000017 65535 f 0000000016 00000 n 0000000102 00000 n 0000005968 00000 n 0000006080 00000 n 0000006608 00000 n 0000006789 00000 n 0000006940 00000 n 0000007037 00000 n 0000007124 00000 n 0000010835 00000 n 0000010948 00000 n 0000011160 00000 n 0000011372 00000 n 0000011403 00000 n 0000011447 00000 n 0000011581 00000 n 0000000000 00001 f 0000011673 00000 n trailer<</Size 19/Info 15 0 R /Root 16 0 R /ID[<b4c507482e64d196461e04c9a1adcc5a><c3f3d89b35c4e5552ca45f49b52e9a2d>]>>startxref12581%%EOF

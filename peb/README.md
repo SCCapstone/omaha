@@ -1,1 +1,0 @@
-This is the directory where all things related to the PEB (Personal Electornic Ballot) are located. Pictures, notes, and (hopefully) ROM dump(s) will be located here.

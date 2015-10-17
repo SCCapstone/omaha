@@ -1,1 +1,0 @@
-This is the directory where all things related to the actual iVotronic machine are located. Pictures, notes, and (hopefully) ROM dump(s) will be located here.
