@@ -54,7 +54,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <conio.h>
+//#include <conio.h> // Non-existent on Linux.
+
+// Make these function annotations harmless. GCC chokes otherwise.
+#define near
+#define far
 
 /**** Definitions of JTAG BSR pins for sequence for Intel 386 EX CPU ****/
 /***** Note: MIO shifted out LAST, D15 - first! *************************/
