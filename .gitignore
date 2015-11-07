@@ -7,3 +7,5 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+# Editor temporary files
+*.swp
