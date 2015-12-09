@@ -14,4 +14,4 @@ The iVotronic DRE voting machine is a touchscreen-equipped voting machine design
 
 This is a shot of the full iVotronic board. There is some glare from the overhead lighting in the room, but all of the ICs should be clearly visible.
 
-[iVotronic full board photo](pics/ivoBoard.jpg)
+![iVotronic full board photo](pics/ivoBoard.jpg)
