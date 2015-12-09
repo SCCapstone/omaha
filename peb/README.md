@@ -10,8 +10,6 @@ The Portable Electronic Ballot units are used to transport data to and from the 
  - `info` :: A folder where we stored photos of our notes. These may not make any sense out of context.
  - `pics` :: Photos of the PEB board.
 
-This is the directory where all things related to the PEB (Personal Electornic Ballot) are located. Pictures, notes, and ROM dump(s) are be located here.
-
 
 ## Board photos
 
