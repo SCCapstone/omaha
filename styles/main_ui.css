@@ -1,0 +1,20 @@
+a {
+    color: rgb(0, 255, 255);
+    text-decoration: none;
+}
+
+body {
+    width: 1000px;
+    margin: auto;
+
+    background-color: rgb(0, 0, 255);
+    color: rgb(255, 255, 255);
+
+    font-family: monospace;
+}
+
+div.top-header {
+    height: 100px;
+    background-image: url("../resources/top_banner.png");
+    background-repeat: no-repeat;
+}
