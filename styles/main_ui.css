@@ -18,3 +18,7 @@ div.top-header {
     background-image: url("../resources/top_banner.png");
     background-repeat: no-repeat;
 }
+
+div.top-header h1 {
+    display: none;
+}
