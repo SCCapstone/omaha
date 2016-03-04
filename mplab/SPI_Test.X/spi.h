@@ -2,7 +2,16 @@
 /* Usage Notes:
  * To send/recv a single byte over SPI, use the following procedure:
  *     SPI_Enable();
- *     SPI_Transfer();
+ *     SPI_Transfer(...);
+ *     SPI_Disable();
+ * 
+ * To send/recv multiple bytes in one SPI session, use the following procedure:
+ *     SPI_Enable();
+ *     unsigned char send_data[10] = { ... };
+ *     unsigned char recv_data[10];
+ *     for (int i = 0; i < 10; i++) {
+ *         recv_data[i] = SPI_Transfer(send_data[i]);
+ *     }
  *     SPI_Disable();
  */
 #ifndef SPI_H
