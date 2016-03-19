@@ -11,12 +11,14 @@ body {
     color: rgb(255, 255, 255);
 
     font-family: monospace;
+    font-size: 12pt;
 }
 
 div.top-header {
     height: 100px;
     background-image: url("../resources/top_banner.png");
     background-repeat: no-repeat;
+    margin-bottom: 25px;
 }
 
 div.top-header h1 {
