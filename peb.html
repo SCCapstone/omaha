@@ -1,17 +1,147 @@
-<head>
-  <title>Personalized Electronic Ballot</title>
-</head>
+<html>
+    <head>
+        <title>Personalized Electronic Ballot</title>
+        <link rel="stylesheet" href="styles/main_ui.css" />
+        
+        <script type="text/javascript">
+            function changeImage()
+            {
+                var image = document.getElementById("pebImg");
+                var togBox = document.getElementById("imgToggle");
+                
+                if (image.src.indexOf("board") != -1)
+                {
+                    image.src = "resources/peb/schematic.png";
+                    togBox.innerHTML = "<a href=\"javascript:changeImage()\">Click here</a> to return to the actual PEB board.";
+                }
+                else
+                {
+                    image.src = "resources/peb/board.jpg";
+                    togBox.innerHTML = "<a href=\"javascript:changeImage()\">Click here</a> to see a communications schematic of the PEB.";
+                }
+            }
+            
+            function writeInformation(component)
+            {
+                var titleBar = document.getElementById("title");
+                var manf = document.getElementById("manu");
+                var sNum = document.getElementById("serial");
+                var dsLink = document.getElementById("datasheet");
+                var flavor = document.getElementById("flavor");
+                
+                switch(component)
+                {
+                    case "S1":
+                        titleBar.innerHTML = "Magnetic Field Switch";
+                        manf.innerHTML = "Unknown";
+                        sNum.innerHTML = "magentic field switch";
+                        dsLink.href = "#";
+                        dsLink.innerHTML = "None";
+                        flavor.innerHTML = "As the name suggests, the magnetic field switch engages when it is placed close to a magnet, such as the one inside the iVotronic's PEB receptacle, and sends power to the PEB's components, effectively powering on the handheld device.";
+                        break;
+                    case "T1":
+                        titleBar.innerHTML = "MOS Field-Effect Transistor";
+                        manf.innerHTML = "ON Semiconductor";
+                        sNum.innerHTML = "NTMS10P02R2";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/T1_E10P02.pdf";
+                        dsLink.innerHTML = "T1_E10P02.pdf";
+                        flavor.innerHTML = "A metal-oxide-semiconductor field-effect transistor (or MOSFET) is one of the most common types of transistors in use. Although specifics are not known, this component is involved with the PEB's IR communications.";
+                        break;
+                    case "U1":
+                        titleBar.innerHTML = "8-bit Microcontroller";
+                        manf.innerHTML = "Microchip Tech Inc.";
+                        sNum.innerHTML = "PIC16F873";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U1_PIC16F87X.pdf";
+                        dsLink.innerHTML = "U1_PIC16F87X.pdf";
+                        flavor.innerHTML = "The microcontroller is the most important component on the board: it is what implements the logic needed to get the board functioning through interoperating with the other components on the board. Its primary function is to communicate with the iVotronic to manage ballot and vote information. Furthermore, it can be programmed via the external port (marked J1) using the In-Circuit Serial Programming (ICSP) protocol";
+                        break;
+                    case "U2":
+                        titleBar.innerHTML = "16-Megabit DataFlash&reg; Chip";
+                        manf.innerHTML = "Atmel";
+                        sNum.innerHTML = "AT45DB161B";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U2_AT45DB161B.pdf";
+                        dsLink.innerHTML = "U2_AT45DB161B.pdf";
+                        flavor.innerHTML = "The DataFlash memory chip stores 16 megabits (2 megabytes) of information used by the PEB, and it communicates with the microcontroller via the Serial Peripheral Interface (SPI) protocol. Specifically, this chip stores all of the information needed for an election ballot: candidate information, precinct information, and&mdash;most importantly&mdash;vote totals. More chips can be added to the device for redundancy.";
+                        break;
+                    case "U4":
+                        titleBar.innerHTML = "IrDA&trade; Encoder/Decoder";
+                        manf.innerHTML = "Texas Instruments";
+                        sNum.innerHTML = "TIR1000";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U4_TIR1000.pdf";
+                        dsLink.innerHTML = "U4_TIR1000.pdf";
+                        flavor.innerHTML = "The IrDA&trade; Encode/Decoder acts an intermediary between the microcontroller (U2) and the infrared tranceiver (U7). It translates between the raw data used by the controller (sent via the UART/USART protocol) and the IrDA&trade; packets sent and recieved by the transceiver. IrDA&trade; is a standard protocol for transimitting information via infrared light.";
+                        break;
+                    case "U7":
+                        titleBar.innerHTML = "Infrared Transceiver";
+                        manf.innerHTML = "Vishay Semiconductors";
+                        sNum.innerHTML = "TFDU4100";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U7_TFDU4100.pdf";
+                        dsLink.innerHTML = "U7_TFDU4100.pdf";
+                        flavor.innerHTML = "The infrared (IR) transceiver is the lowest-level interface between the PEB and the iVotronic voting machine. It sends and receives packets of information that are encoded and decoded by the IrDA&trade; en-/decoder.";
+                        break;
+                    case "U8":
+                        titleBar.innerHTML = "Dual D Flip-Flops";
+                        manf.innerHTML = "Texas Instruments";
+                        sNum.innerHTML = "SN74HC74";
+                        dsLink.href = "https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U8_SN74HC74.pdf";
+                        dsLink.innerHTML = "U8_SN74HC74.pdf";
+                        flavor.innerHTML = "The two <a href=\"https://en.wikipedia.org/wiki/Flip-flop_(electronics)#D_flip-flop\">D flip-flops</a> on this component are  connected in series to step down the clock signal (generated by the clock, component Y1) by a factor of 4 to be within a usable range for the IrDA$trade; en-/decoder (which can only accept a signal upto 1.8 MHz).";
+                        break;
+                }
+            }
+        </script>
+        
+        <style type="text/css">
+            div.imageBox {
+                width: 500px;
+                float: left;
+            }
+            div.imageBox img {
+                width: 500px;
+            }
+            div.infobox {
+                width: 450px;
+                padding-left: 50px;
+                float: left;
+            }
+            #title {
+                font-weight: bold;
+                font-size: large;
+                font-family: monospace;
+            }
+            #manu {
+                font-style: italic;
+            }
+            #serial {
+                font-family: monospace;
+            }
+        </style>
+    </head>
 
-<body>
-<map name="boardmap">
-    <area shape="rect" coords="196,1465,323,1629" href="https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/T1_E10P02.pdf" alt="T1">
-    <area shape="rect" coords="177,894,571,1141" href="https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U1_PIC16F87X.pdf" alt="U1">
-    <area shape="rect" coords="844,907,1034,1228" href="https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U2_AT45DB161B.pdf" alt="U2">
-    <area shape="rect" coords="791,1365,931,1492" href="https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U4_TIR1000.pdf" alt="U4">
-    <area shape="rect" coords="464,1374,656,1552" href="https://github.com/SCCapstone/omaha/blob/master/peb/datasheets/U8_SN74HC74.pdf" alt="U8">
-  </map>
+    <body>
+        <map name="boardmap">
+            <area shape="rect" coords=" 314, 500, 433, 534" href="javascript:writeInformation('S1')" title="Magnetic Field Switch" />
+            <area shape="rect" coords="  57, 448,  99, 484" href="javascript:writeInformation('T1')" title="MOSFET" />
+            <area shape="rect" coords="  48, 277, 175, 336" href="javascript:writeInformation('U1')" title="Microcontroller">
+            <area shape="rect" coords=" 253, 280, 309, 364" href="javascript:writeInformation('U2')" title="Flash Memory">
+            <area shape="rect" coords=" 235, 408, 283, 449" href="javascript:writeInformation('U4')" title="IrDA En-/Decoder">
+            <area shape="rect" coords=" 208, 491, 284, 530" href="javascript:writeInformation('U7')" title="IrDA Transceiver" />
+            <area shape="rect" coords=" 136, 425, 199, 456" href="javascript:writeInformation('U8')" title="D Flip-Flop">
+        </map>
 
-  <a href="index.html">Return to homepage</a>
-  <hr />
-  <img src="peb.jpg" alt="" usemap="#boardmap">
-</body>
+        <a href="index.html">Return to homepage</a>
+        <hr />
+        <div class="imageBox">
+            <img id="pebImg" src="resources/peb/board.jpg" alt="PEB Board" usemap="#boardmap">
+        </div>
+        <div class="infobox">
+            <p id="imgToggle"><a href="javascript:changeImage()">Click here</a> to see a communications schematic of the PEB.</p>
+            <p>&nbsp;</p>
+            <p id="title">[Component]</p>
+            <p><span id="manu">[Manufacturer]</span>'s <span id="serial">[Serial number]</span></p>
+            <p>Datasheet: <a id="datasheet">[GitHub Link]</a></p>
+            <hr />
+            <p id="flavor">[Information]</p>
+        </div>
+    </body>
+</html>
