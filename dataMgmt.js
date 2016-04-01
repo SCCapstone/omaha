@@ -3,7 +3,7 @@ function getInformation(dev, comp)
     var request = new XMLHttpRequest();
     var url = "componentData.json";
     
-    request.onrequeststatechange = function()
+    request.onreadystatechange = function()
     {
         if (request.readyState == 4 && request.status == 200)
         {
