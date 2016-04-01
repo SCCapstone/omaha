@@ -19,7 +19,7 @@
             "manf": "PEB",
             "serial": "External Access Pins",
             "datasheet": ["#", "None"],
-            "detail": "These 7 pins are used to interact with the microcontroller. Their primary function use is to read and reprogram the chip using the In-Circuit Serial Programming (ICSP) protocol. Unfortunately, the original firmware was read-protected, so we were not able to decompile the original software."
+            "detail": "These 7 pins are used to interact with the microcontroller. Their primary function is to read and reprogram the chip using the In-Circuit Serial Programming (ICSP) protocol. Unfortunately, the original firmware was read-protected, so we were not able to decompile the original software."
         },
         "S1":
         {
