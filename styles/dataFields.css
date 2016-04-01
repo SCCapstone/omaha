@@ -1,0 +1,19 @@
+div.imageBox {
+    width: 500px;
+    float: left;
+}
+div.imageBox img {
+    width: 500px;
+}
+div.infobox {
+    width: 450px;
+    padding-left: 50px;
+    float: left;
+}
+#title {
+    font-weight: bold;
+    font-size: large;
+}
+#manu {
+    font-style: italic;
+}

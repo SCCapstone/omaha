@@ -1,23 +1,32 @@
+var jsonData;
+
 function getInformation(dev, comp)
 {
-    var request = new XMLHttpRequest();
-    var url = "componentData.json";
-    
-    request.onreadystatechange = function()
+    if (jsonData === null)
     {
-        if (request.readyState == 4 && request.status == 200)
+        var request = new XMLHttpRequest();
+        var url = "componentData.json";
+        
+        request.onreadystatechange = function()
         {
-            var json = JSON.parse(request.responseText);
-            writeInformation(json, dev, comp);
-        }
-    };
-    
-    request.open("GET", url, true);
-    request.overrideMimeType("application/json");
-    request.send();
+            if (request.readyState == 4 && request.status == 200)
+            {
+                jsonData = JSON.parse(request.responseText);
+                writeInformation(dev, comp);
+            }
+        };
+        
+        request.open("GET", url, true);
+        request.overrideMimeType("application/json");
+        request.send();
+    }
+    else
+    {
+        writeInformation(dev, comp);
+    }
 }
 
-function writeInformation(jsonData, device, component)
+function writeInformation(device, component)
 {
     console.log("writeInformation('"+device+"', '"+component+"')");
     

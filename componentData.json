@@ -89,12 +89,38 @@
     
     "ivo":
     {
-        
-    },
-    
-    "ivoIR":
-    {
-        
+        "ADA":
+        {
+            "title": "ADA-Compliant Sound Card",
+            "manf": "ES&amp;S",
+            "serial": "Sound Module",
+            "datasheet": ["ivo_sound.html", "Board Detail"],
+            "detail": "This sound board generates the audio needed to comply with the Americans with Disabilities Act of 1990 so that the visually-impaired are not barred from casting a vote. <a href=\"ivo_sound.html\">Visit the card's page</a> to learn more.";
+        },
+        "CPU":
+        {
+            "title": "32-bit, 16&ndash;25-Megahertz Microprocessor",
+            "manf": "Intel",
+            "serial": "KU80386EX25"
+            "datasheet": ["https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/CPU_KU80386EX25.pdf", "CPU_KU80386EX25.pdf"],
+            "detail": "This is the brains of the iVotronic voting machine. This microprocessor coordinates all of the other components on this board to communicate with the PEB, process vote information, and interacti with the user through sight, sound, and touch.";
+        },
+        "MEM":
+        {
+            "title": "2-Megabyte Memory Module",
+            "manf": "ES&amp;S",
+            "serial": "Memory Module",
+            "datasheet": ["ivo_memory.html", "Board Detail"],
+            "detail": "The two removable memory modules on the board work in tandem with four other memory components to store multiple copies of voting information to guard against any one component failing. <a href=\"ivo_memory.html\">Visit the module's page</a> to learn more.";
+        },
+        "VID":
+        {
+            "title": "Primary Display Driver",
+            "manf": "ES&amp;S",
+            "serial": "Video Module",
+            "datasheet": ["ivo_video.html", "Board Detail"],
+            "detail": "As one might guess, the video driver handles all of the low-level information and processing needed to render and display the various components of the iVotronic's user interface and to respond to the user's input. <a href=\"ivo_video.html\">Visit the card's page</a> to learn more.";
+        }
     },
     
     "ivoMem":
