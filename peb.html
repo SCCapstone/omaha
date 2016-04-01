@@ -55,6 +55,7 @@
     </head>
     <body>
         <map name="boardmap">
+            <area shape="rect" coords="  47, 107, 165, 128" href="javascript:writePEBInfo('J1')" title="External Pins" />
             <area shape="rect" coords=" 314, 500, 433, 534" href="javascript:writePEBInfo('S1')" title="Magnetic Field Switch" />
             <area shape="rect" coords="  57, 448,  99, 484" href="javascript:writePEBInfo('T1')" title="MOSFET" />
             <area shape="rect" coords="  48, 277, 175, 336" href="javascript:writePEBInfo('U1')" title="Microcontroller" />
@@ -64,8 +65,11 @@
             <area shape="rect" coords=" 136, 425, 199, 456" href="javascript:writePEBInfo('U8')" title="D Flip-Flop" />
             <area shape="rect" coords="  31, 369, 138, 413" href="javascript:writePEBInfo('Y1')" title="Clock" />
         </map>
-
-        <a href="index.html">Return to homepage</a>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        
+        <p><a href="index.html">Home</a> &gt;</p>
         <h1>Portable Electronic Ballot</h1>
         <p>The Portable Electronic Ballot, or PEB, is a handheld cartridge that slots into the iVotronic and records ballot information and vote totals during an election.</p>
         <p>The hardware used to construct the PEB is fairly standard. A microcontroller uses a flash memory chip to store the information described above and a regular infrared en-/decoder and transceiver to relay that information between the iVotronic machine via infrared signals. Additionally, the communication protocols used to exchange data are well-documented and widely used within the electronics industry: the Serial Peripheral Interface (SPI) protocol is used to exchange information between the controller and memory chip, whereas Universal Asynchronous Receiver/Transmitter (UART) components built into the controller and IR transceiver exchange the information between themselves that is sent to and received from the iVotronic through an Infrared Data Association (IrDA) protocol stack.</p> 
