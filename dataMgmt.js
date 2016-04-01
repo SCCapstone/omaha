@@ -3,12 +3,18 @@ function getInformation(dev, comp)
     var request = new XMLHttpRequest();
     var url = "componentData.json";
     
-    request.open("GET", url, false);
+    request.onrequeststatechange = function()
+    {
+        if (request.readyState == 4 && request.status == 200)
+        {
+            var json = JSON.parse(request.responseText);
+            writeInformation(json, dev, comp);
+        }
+    };
+    
+    request.open("GET", url, true);
     request.overrideMimeType("application/json");
     request.send();
-    
-    var jsonData = JSON.parse(request.responseText);
-    writeInformation(jsonData, dev, comp);
 }
 
 function writeInformation(jsonData, device, component)
