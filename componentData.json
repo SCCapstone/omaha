@@ -101,7 +101,7 @@
         {
             "title": "32-bit, 16&ndash;25-Megahertz Microprocessor",
             "manf": "Intel",
-            "serial": "KU80386EX25"
+            "serial": "KU80386EX25",
             "datasheet": ["https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/CPU_KU80386EX25.pdf", "CPU_KU80386EX25.pdf"],
             "detail": "This is the brains of the iVotronic voting machine. This microprocessor coordinates all of the other components on this board to communicate with the PEB, process vote information, and interacti with the user through sight, sound, and touch."
         },
