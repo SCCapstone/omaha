@@ -2,7 +2,7 @@ var jsonData;
 
 function getInformation(dev, comp)
 {
-    if (jsonData === null)
+    if (jsonData === null || typeof jsonData === "undefined")
     {
         var request = new XMLHttpRequest();
         var url = "componentData.json";
@@ -30,7 +30,7 @@ function writeInformation(device, component)
 {
     console.log("writeInformation('"+device+"', '"+component+"')");
     
-    if (jsonData === null)
+    if (jsonData === null || typeof jsonData === "undefined")
     {
         console.log("Received null data.");
         return;
