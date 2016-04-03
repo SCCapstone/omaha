@@ -1,0 +1,514 @@
+
+-- Copyright Intel Corporation 1997
+--***************************************************************************
+-- Intel Corporation makes no warranty for the use of its products
+-- and assumes no responsibility for any errors which may appear in
+-- this document nor does it make a commitment to update the information
+-- contained herein.
+--***************************************************************************
+-- Boundary-Scan Description Language (BSDL Version 0.0) is a de-facto
+-- standard means of describing essential features of ANSI/IEEE 1149.1-1993
+-- compliant devices.  This language is under consideration by the IEEE for
+-- formal inclusion within a supplement to the 1149.1-1990 standard.  The
+-- generation of the supplement entails an extensive IEEE review and a formal
+-- acceptance balloting procedure which may change the resultant form of the
+-- language.  Be aware that this process may extend well into 1993, and at
+-- this time the IEEE does not endorse or hold an opinion on the language.
+--***************************************************************************
+--
+-- Intel386 (TM) EX Processor BSDL Model
+-- File has been verified electrically 5/12/97 Chris Bruemmer
+-- ---------------------------------------------------------
+-- Rev 0.4	14 Sep 1994
+-- Rev 0.5      09 Nov 1995
+-- Rev 0.6      23 Jul 1996 : created TQFP 144ld file
+-- Rev 0.7      05 May 1997 : Fixed syntax error on line 261 Chris Bruemmer
+-- Rev 0.8      12 Jun 1997 : Rem'd out CLKOUT references. Chris Bruemmer
+
+--The following list describes all of the pins that are contained in the Intel386 EXTB processor.
+--This file is used for the C-step 3V part.
+
+entity i386_EX_Processor is
+   generic(PHYSICAL_PIN_MAP : string := "TQFP_144");
+
+
+port(
+D15	:	inout bit;
+D14	:	inout bit;
+D13	:	inout bit;
+D12	:	inout bit;
+D11	:	inout bit;
+D10	:	inout bit;
+D9	:	inout bit;
+D8	:	inout bit;
+D7	:	inout bit;
+D6	:	inout bit;
+D5	:	inout bit;
+D4	:	inout bit;
+D3	:	inout bit;
+D2	:	inout bit;
+D1	:	inout bit;
+D0	:	inout bit;
+LBAbar	:	inout bit;
+LCSbar	:	inout bit;
+UCSbar	:	inout bit;
+P27XCTS0	:	inout bit;
+P26XTXD0	:	inout bit;
+P25XRXD0	:	inout bit;
+DACK0barXGCS5bar	:	inout bit;
+P24XGCS4bar	:	inout bit;
+P23XGCS3bar	:	inout bit;
+P22XGCS2bar	:	inout bit;
+P21XGCS1bar	:	inout bit;
+P20XGCS0bar	:	inout bit;
+SMIACTbarXEXCSIG	:	inout bit;
+DRQ1XRXD1	:	inout bit;
+DRQ0XDCD1bar	:	inout bit;
+WDTOUT	:	inout bit;
+EOPbarXCTS1bar	:	inout bit;
+DACK1barXTXD1	:	inout bit;
+P17XHLDA	:	inout bit;
+RESET	:	inout bit;
+P16XHOLD	:	inout bit;
+P15XLOCKbar	:	inout bit;
+P14XRIObar	:	inout bit;
+P13XDSR0bar	:	inout bit;
+P12XDTR0bar	:	inout bit;
+P11XRTS0bar	:	inout bit;
+P10XDCD0bar	:	inout bit;
+FLTbar	:	inout bit;
+DSR1barXSTXCLK	:	inout bit;
+INT7XTMRGATE1	:	inout bit;
+INT6XTMRCLK1	:	inout bit;
+INT5XTMRGATE0	:	inout bit;
+INT4XTMRCLK0	:	inout bit;
+BUSYbarXTMRGATE2	:	inout bit;
+ERRORbarXTMROUT2	:	inout bit;
+NMI	:	inout bit;
+PEREQXTMRCLK2	:	inout bit;
+P37XCOMCLK	:	inout bit;
+P36XPWRDOWN	:	inout bit;
+P35XINT3	:	inout bit;
+P34XINT2	:	inout bit;
+P33XINT1	:	inout bit;
+P32XINT0	:	inout bit;
+RTS1barXSSIOTX	:	inout bit;
+RI1barXSSIORX	:	inout bit;
+DTR1barXSRXCLK	:	inout bit;
+P31XTMROUT1	:	inout bit;
+P30XTMROUT0	:	inout bit;
+SMIbar	:	inout bit;
+A25	:	inout bit;
+A24	:	inout bit;
+A23	:	inout bit;
+A22	:	inout bit;
+A21	:	inout bit;
+A20	:	inout bit;
+A19	:	inout bit;
+A18XCAS2	:	inout bit;
+A17XCAS1	:	inout bit;
+A16XCAS0	:	inout bit;
+A15	:	inout bit;
+A14	:	inout bit;
+A13	:	inout bit;
+A12	:	inout bit;
+A11	:	inout bit;
+A10	:	inout bit;
+A9	:	inout bit;
+A8	:	inout bit;
+A7	:	inout bit;
+A6	:	inout bit;
+A5	:	inout bit;
+A4	:	inout bit;
+A3	:	inout bit;
+A2	:	inout bit;
+A1	:	inout bit;
+NAbar	:	inout bit;
+ADSbar	:	inout bit;
+BHEbar	:	inout bit;
+BLEbar	:	inout bit;
+WRbar	:	inout bit;
+RDbar	:	inout bit;
+BS8bar	:	inout bit;
+READYbar	:	inout bit;
+WXRbar	:	inout bit;
+DXCbar	:	inout bit;
+MXIObar	:	inout bit;
+TCK	:	in bit;
+TDI	:	in bit;
+TMS	:	in bit;
+TRSTbar	:	in bit;
+TDO 	:	out bit;
+--CLKOUT	:	out bit;
+VCC	:	linkage bit_vector(0 to 11);
+VSS	:	linkage bit_vector(0 to 23));
+
+
+
+   use STD_1149_1_1990.all;
+
+--This list describes the physical pin layout of all signals
+
+
+   attribute PIN_MAP of i386_EX_Processor : entity is PHYSICAL_PIN_MAP;
+constant TQFP_144	: PIN_MAP_STRING :=   -- Define PinOut of TQFP
+	"D15	:  25,"&
+	"D14	:  23,"&
+	"D13	:  22,"&
+	"D12	:  21,"&
+	"D11	:  20,"&
+	"D10	:  19,"&
+	"D9	:  17,"&
+	"D8	:  15,"&
+	"D7	:  14,"&
+	"D6	:  13,"&
+	"D5	:  12,"&
+	"D4	:  10,"&
+	"D3	:  8,"&
+	"D2	:  7,"&
+	"D1	:  6,"&
+	"D0	:  5,"&
+	"LBAbar	:  4,"&
+	"LCSbar	:  2,"&
+	"UCSbar	:  1,"&
+	"P27XCTS0	:  143,"&
+	"P26XTXD0	:  142,"&
+	"P25XRXD0	:  140,"&
+	"DACK0barXGCS5bar	:  139,"&
+	"P24XGCS4bar	:  137,"&
+	"P23XGCS3bar	:  136,"&
+	"P22XGCS2bar	:  135,"&
+	"P21XGCS1bar	:  134,"&
+	"P20XGCS0bar	:  133,"&
+	"SMIACTbarXEXCSIG	:  130,"&
+	"DRQ1XRXD1	:  128,"&
+	"DRQ0XDCD1bar	:  127,"&
+	"WDTOUT	:  124,"&
+	"EOPbarXCTS1bar	:  123,"&
+	"DACK1barXTXD1	:  122,"&
+	"P17XHLDA	:  121,"&
+	"RESET	:  119,"&
+	"P16XHOLD	:  117,"&
+	"P15XLOCKbar	:  116,"&
+	"P14XRIObar	:  115,"&
+	"P13XDSR0bar	:  114,"&
+	"P12XDTR0bar	:  113,"&
+--      	"CLKOUT		:  112,"&
+	"P11XRTS0bar	:  111,"&
+	"P10XDCD0bar	:  110,"&
+	"FLTbar	:  107,"&
+	"DSR1barXSTXCLK	:  106,"&
+	"INT7XTMRGATE1	:  104,"&
+	"INT6XTMRCLK1	:  103,"&
+	"INT5XTMRGATE0	:  102,"&
+	"INT4XTMRCLK0	:  101,"&
+	"BUSYbarXTMRGATE2	:  100,"&
+	"ERRORbarXTMROUT2	:  99,"&
+	"NMI	:  98,"&
+	"PEREQXTMRCLK2	:  96,"&
+	"P37XCOMCLK	:  94,"&
+	"P36XPWRDOWN	:  93,"&
+	"P35XINT3	:  92,"&
+	"P34XINT2	:  91,"&
+	"P33XINT1	:  89,"&
+	"P32XINT0	:  87,"&
+	"RTS1barXSSIOTX	:  86,"&
+	"RI1barXSSIORX	:  85,"&
+	"DTR1barXSRXCLK	:  84,"&
+	"P31XTMROUT1	:  81,"&
+	"P30XTMROUT0	:  80,"&
+	"SMIbar	:  79,"&
+	"A25	:  78,"&
+	"A24	:  76,"&
+	"A23	:  74,"&
+	"A22	:  73,"&
+	"A21	:  71,"&
+	"A20	:  70,"&
+	"A19	:  68,"&
+	"A18XCAS2	:  67,"&
+	"A17XCAS1	:  66,"&
+	"A16XCAS0	:  64,"&
+	"A15	:  63,"&
+	"A14	:  62,"&
+	"A13	:  61,"&
+	"A12	:  59,"&
+	"A11	:  58,"&
+	"A10	:  57,"&
+	"A9	:  56,"&
+	"A8	:  55,"&
+	"A7	:  54,"&
+	"A6	:  53,"&
+	"A5	:  52,"&
+	"A4	:  49,"&
+	"A3	:  48,"&
+	"A2	:  46,"&
+	"A1	:  45,"&
+	"NAbar	:  44,"&
+	"ADSbar	:  43,"&
+	"BHEbar	:  42,"&
+	"BLEbar	:  40,"&
+	"WRbar	:  38,"&
+	"RDbar	:  37,"&
+	"BS8bar	:  35,"&
+	"READYbar	:  34,"&
+	"WXRbar	:  32,"&
+	"DXCbar	:  31,"&
+	"MXIObar	:  29,"&
+	"TRSTbar 	:  129,"&
+	"TDO	:  26,"&
+	"TDI	:  27,"&
+	"TMS	:  28,"&
+	"TCK	:  82,"&
+	"VCC	: (9,16,30,41,51,65,77,88,95,118,131,138),"&
+	"VSS	: (3,11,18,24,33,36,39,47,50,60,69,72,75,83,"&
+        "          90,97,105,108,109,120,126,132,141,144)";
+
+   attribute Tap_Scan_In    of  TDI   : signal is true;
+   attribute Tap_Scan_Mode  of  TMS   : signal is true;
+   attribute Tap_Scan_Out   of  TDO   : signal is true;
+   attribute Tap_Scan_Reset of  TRSTBAR  : signal is true;
+   attribute Tap_Scan_Clock of  TCK   : signal is (33.0e6, BOTH);
+
+   attribute Instruction_Length of i386_EX_Processor: entity is 4;
+
+   attribute Instruction_Opcode of i386_EX_Processor: entity is
+
+      "BYPASS	(1111)," &
+      "EXTEST	(0000)," &
+      "SAMPLE	(0001)," &
+      "IDCODE	(0010)," &
+      "HIGHZ	(1000)," &
+      "INTEST   (1001)," &
+      "Reserved	(1100, 1011)";
+-- Private instructions DO NOT belong in BSDL
+
+attribute Instruction_Capture of i386_EX_Processor: entity is "0001";
+   -- there is no Instruction_Disable attribute for i386_EX_Processor
+
+   attribute Instruction_Private of i386_EX_Processor: entity is "Reserved" ;
+
+   attribute Idcode_Register of i386_EX_Processor: entity is
+      "0010"                  &  --version (C-step),
+      "0000001001110000"      &  --part number (3V part)
+      "00000001001"           &  --manufacturers identity
+      "1";                       --required by the standard
+				 --idcode is 20270013h for this 3V part
+
+   attribute Register_Access of i386_EX_Processor: entity is
+	"Bypass		(HIGHZ)";
+
+--{*******************************************************************}
+--{  The first cell, cell 0, is closest to TDO                        }
+--{*******************************************************************}
+
+attribute Boundary_Cells of i386_EX_Processor: entity is "BC_6, BC_2";
+
+attribute Boundary_Length of i386_EX_Processor: entity is 202;
+attribute Boundary_Register of i386_EX_Processor: entity is
+	"0  (BC_2, *, control, 0),"  &
+	"1  (BC_6, D15, bidir, X, 0, 0, Z),"  &
+	"2  (BC_2, *, control, 0),"  &
+	"3  (BC_6, D14, bidir, X, 2, 0, Z),"  &
+	"4  (BC_2, *, control, 0),"  &
+	"5  (BC_6, D13, bidir, X, 4, 0, Z),"  &
+	"6  (BC_2, *, control, 0),"  &
+	"7  (BC_6, D12, bidir, X, 6, 0, Z),"  &
+	"8  (BC_2, *, control, 0),"  &
+	"9  (BC_6, D11, bidir, X, 8, 0, Z),"  &
+	"10  (BC_2, *, control, 0),"  &
+	"11  (BC_6, D10, bidir, X, 10, 0, Z),"  &
+	"12  (BC_2, *, control, 0),"  &
+	"13  (BC_6, D9, bidir, X, 12, 0, Z),"  &
+	"14  (BC_2, *, control, 0),"  &
+	"15  (BC_6, D8, bidir, X, 14, 0, Z),"  &
+	"16  (BC_2, *, control, 0),"  &
+	"17  (BC_6, D7, bidir, X, 16, 0, Z),"  &
+	"18  (BC_2, *, control, 0),"  &
+	"19  (BC_6, D6, bidir, X, 18, 0, Z),"  &
+	"20  (BC_2, *, control, 0),"  &
+	"21  (BC_6, D5, bidir, X, 20, 0, Z),"  &
+	"22  (BC_2, *, control, 0),"  &
+	"23  (BC_6, D4, bidir, X, 22, 0, Z),"  &
+	"24  (BC_2, *, control, 0),"  &
+	"25  (BC_6, D3, bidir, X, 24, 0, Z),"  &
+	"26  (BC_2, *, control, 0),"  &
+	"27  (BC_6, D2, bidir, X, 26, 0, Z),"  &
+	"28  (BC_2, *, control, 0),"  &
+	"29  (BC_6, D1, bidir, X, 28, 0, Z),"  &
+	"30  (BC_2, *, control, 0),"  &
+	"31  (BC_6, D0, bidir, X, 30, 0, Z),"  &
+	"32  (BC_2, *, control, 0),"  &
+	"33  (BC_6, LBAbar, bidir, X, 32, 0, Z),"  &
+	"34  (BC_2, *, control, 0),"  &
+	"35  (BC_6, LCSbar, bidir, X, 34, 0, Z),"  &
+	"36  (BC_2, *, control, 0),"  &
+	"37  (BC_6, UCSbar, bidir, X, 36, 0, Z),"  &
+	"38  (BC_2, *, control, 0),"  &
+	"39  (BC_6, P27XCTS0, bidir, X, 38, 0, Z),"  &
+	"40  (BC_2, *, control, 0),"  &
+	"41  (BC_6, P26XTXD0, bidir, X, 40, 0, Z),"  &
+	"42  (BC_2, *, control, 0),"  &
+	"43  (BC_6, P25XRXD0, bidir, X, 42, 0, Z),"  &
+	"44  (BC_2, *, control, 0),"  &
+	"45  (BC_6, DACK0barXGCS5bar, bidir, X, 44, 0, Z),"  &
+	"46  (BC_2, *, control, 0),"  &
+	"47  (BC_6, P24XGCS4bar, bidir, X, 46, 0, Z),"  &
+	"48  (BC_2, *, control, 0),"  &
+	"49  (BC_6, P23XGCS3bar, bidir, X, 48, 0, Z),"  &
+	"50  (BC_2, *, control, 0),"  &
+	"51  (BC_6, P22XGCS2bar, bidir, X, 50, 0, Z),"  &
+	"52  (BC_2, *, control, 0),"  &
+	"53  (BC_6, P21XGCS1bar, bidir, X, 52, 0, Z),"  &
+	"54  (BC_2, *, control, 0),"  &
+	"55  (BC_6, P20XGCS0bar, bidir, X, 54, 0, Z),"  &
+	"56  (BC_2, *, control, 0),"  &
+	"57  (BC_6, SMIACTbarXEXCSIG, bidir, X, 56, 0, Z),"  &
+	"58  (BC_2, *, control, 0),"  &
+	"59  (BC_6, DRQ1XRXD1, bidir, X, 58, 0, Z),"  &
+	"60  (BC_2, *, control, 0),"  &
+	"61  (BC_6, DRQ0XDCD1bar, bidir, X, 60, 0, Z),"  &
+	"62  (BC_2, *, control, 0),"  &
+	"63  (BC_6, WDTOUT, bidir, X, 62, 0, Z),"  &
+	"64  (BC_2, *, control, 0),"  &
+	"65  (BC_6, EOPbarXCTS1bar, bidir, X, 64, 0, Z),"  &
+	"66  (BC_2, *, control, 0),"  &
+	"67  (BC_6, DACK1barXTXD1, bidir, X, 66, 0, Z),"  &
+	"68  (BC_2, *, control, 0),"  &
+	"69  (BC_6, P17XHLDA, bidir, X, 68, 0, Z),"  &
+	"70  (BC_2, *, control, 0),"  &
+	"71  (BC_6, RESET, bidir, X, 70, 0, Z),"  &
+	"72  (BC_2, *, control, 0),"  &
+	"73  (BC_6, P16XHOLD, bidir, X, 72, 0, Z),"  &
+	"74  (BC_2, *, control, 0),"  &
+	"75  (BC_6, P15XLOCKbar, bidir, X, 74, 0, Z),"  &
+	"76  (BC_2, *, control, 0),"  &
+	"77  (BC_6, P14XRIObar, bidir, X, 76, 0, Z),"  &
+	"78  (BC_2, *, control, 0),"  &
+	"79  (BC_6, P13XDSR0bar, bidir, X, 78, 0, Z),"  &
+	"80  (BC_2, *, control, 0),"  &
+	"81  (BC_6, P12XDTR0bar, bidir, X, 80, 0, Z),"  &
+	"82  (BC_2, *, control, 0),"  &
+	"83  (BC_6, P11XRTS0bar, bidir, X, 82, 0, Z),"  &
+	"84  (BC_2, *, control, 0),"  &
+	"85  (BC_6, P10XDCD0bar, bidir, X, 84, 0, Z),"  &
+	"86  (BC_2, *, control, 0),"  &
+	"87  (BC_6, FLTbar, bidir, X, 86, 0, Z),"  &
+	"88  (BC_2, *, control, 0),"  &
+	"89  (BC_6, DSR1barXSTXCLK, bidir, X, 88, 0, Z),"  &
+	"90  (BC_2, *, control, 0),"  &
+	"91  (BC_6, INT7XTMRGATE1, bidir, X, 90, 0, Z),"  &
+	"92  (BC_2, *, control, 0),"  &
+	"93  (BC_6, INT6XTMRCLK1, bidir, X, 92, 0, Z),"  &
+	"94  (BC_2, *, control, 0),"  &
+	"95  (BC_6, INT5XTMRGATE0, bidir, X, 94, 0, Z),"  &
+	"96  (BC_2, *, control, 0),"  &
+	"97  (BC_6, INT4XTMRCLK0, bidir, X, 96, 0, Z),"  &
+	"98  (BC_2, *, control, 0),"  &
+	"99  (BC_6, BUSYbarXTMRGATE2, bidir, X, 98, 0, Z),"  &
+	"100  (BC_2, *, control, 0),"  &
+	"101  (BC_6, ERRORbarXTMROUT2, bidir, X, 100, 0, Z),"  &
+	"102  (BC_2, *, control, 0),"  &
+	"103  (BC_6, NMI, bidir, X, 102, 0, Z),"  &
+	"104  (BC_2, *, control, 0),"  &
+	"105  (BC_6, PEREQXTMRCLK2, bidir, X, 104, 0, Z),"  &
+	"106  (BC_2, *, control, 0),"  &
+	"107  (BC_6, P37XCOMCLK, bidir, X, 106, 0, Z),"  &
+	"108  (BC_2, *, control, 0),"  &
+	"109  (BC_6, P36XPWRDOWN, bidir, X, 108, 0, Z),"  &
+	"110  (BC_2, *, control, 0),"  &
+	"111  (BC_6, P35XINT3, bidir, X, 110, 0, Z),"  &
+	"112  (BC_2, *, control, 0),"  &
+	"113  (BC_6, P34XINT2, bidir, X, 112, 0, Z),"  &
+	"114  (BC_2, *, control, 0),"  &
+	"115  (BC_6, P33XINT1, bidir, X, 114, 0, Z),"  &
+	"116  (BC_2, *, control, 0),"  &
+	"117  (BC_6, P32XINT0, bidir, X, 116, 0, Z),"  &
+	"118  (BC_2, *, control, 0),"  &
+	"119  (BC_6, RTS1barXSSIOTX, bidir, X, 118, 0, Z),"  &
+	"120  (BC_2, *, control, 0),"  &
+	"121  (BC_6, RI1barXSSIORX, bidir, X, 120, 0, Z),"  &
+	"122  (BC_2, *, control, 0),"  &
+	"123  (BC_6, DTR1barXSRXCLK, bidir, X, 122, 0, Z),"  &
+	"124  (BC_2, *, control, 0),"  &
+	"125  (BC_6, P31XTMROUT1, bidir, X, 124, 0, Z),"  &
+	"126  (BC_2, *, control, 0),"  &
+	"127  (BC_6, P30XTMROUT0, bidir, X, 126, 0, Z),"  &
+	"128  (BC_2, *, control, 0),"  &
+	"129  (BC_6, SMIbar, bidir, X, 128, 0, Z),"  &
+	"130  (BC_2, *, control, 0),"  &
+	"131  (BC_6, A25, bidir, X, 130, 0, Z),"  &
+	"132  (BC_2, *, control, 0),"  &
+	"133  (BC_6, A24, bidir, X, 132, 0, Z),"  &
+	"134  (BC_2, *, control, 0),"  &
+	"135  (BC_6, A23, bidir, X, 134, 0, Z),"  &
+	"136  (BC_2, *, control, 0),"  &
+	"137  (BC_6, A22, bidir, X, 136, 0, Z),"  &
+	"138  (BC_2, *, control, 0),"  &
+	"139  (BC_6, A21, bidir, X, 138, 0, Z),"  &
+	"140  (BC_2, *, control, 0),"  &
+	"141  (BC_6, A20, bidir, X, 140, 0, Z),"  &
+	"142  (BC_2, *, control, 0),"  &
+	"143  (BC_6, A19, bidir, X, 142, 0, Z),"  &
+	"144  (BC_2, *, control, 0),"  &
+	"145  (BC_6, A18XCAS2, bidir, X, 144, 0, Z),"  &
+	"146  (BC_2, *, control, 0),"  &
+	"147  (BC_6, A17XCAS1, bidir, X, 146, 0, Z),"  &
+	"148  (BC_2, *, control, 0),"  &
+	"149  (BC_6, A16XCAS0, bidir, X, 148, 0, Z),"  &
+	"150  (BC_2, *, control, 0),"  &
+	"151  (BC_6, A15, bidir, X, 150, 0, Z),"  &
+	"152  (BC_2, *, control, 0),"  &
+	"153  (BC_6, A14, bidir, X, 152, 0, Z),"  &
+	"154  (BC_2, *, control, 0),"  &
+	"155  (BC_6, A13, bidir, X, 154, 0, Z),"  &
+	"156  (BC_2, *, control, 0),"  &
+	"157  (BC_6, A12, bidir, X, 156, 0, Z),"  &
+	"158  (BC_2, *, control, 0),"  &
+	"159  (BC_6, A11, bidir, X, 158, 0, Z),"  &
+	"160  (BC_2, *, control, 0),"  &
+	"161  (BC_6, A10, bidir, X, 160, 0, Z),"  &
+	"162  (BC_2, *, control, 0),"  &
+	"163  (BC_6, A9, bidir, X, 162, 0, Z),"  &
+	"164  (BC_2, *, control, 0),"  &
+	"165  (BC_6, A8, bidir, X, 164, 0, Z),"  &
+	"166  (BC_2, *, control, 0),"  &
+	"167  (BC_6, A7, bidir, X, 166, 0, Z),"  &
+	"168  (BC_2, *, control, 0),"  &
+	"169  (BC_6, A6, bidir, X, 168, 0, Z),"  &
+	"170  (BC_2, *, control, 0),"  &
+	"171  (BC_6, A5, bidir, X, 170, 0, Z),"  &
+	"172  (BC_2, *, control, 0),"  &
+	"173  (BC_6, A4, bidir, X, 172, 0, Z),"  &
+	"174  (BC_2, *, control, 0),"  &
+	"175  (BC_6, A3, bidir, X, 174, 0, Z),"  &
+	"176  (BC_2, *, control, 0),"  &
+	"177  (BC_6, A2, bidir, X, 176, 0, Z),"  &
+	"178  (BC_2, *, control, 0),"  &
+	"179  (BC_6, A1, bidir, X, 178, 0, Z),"  &
+	"180  (BC_2, *, control, 0),"  &
+	"181  (BC_6, NAbar, bidir, X, 180, 0, Z),"  &
+	"182  (BC_2, *, control, 0),"  &
+	"183  (BC_6, ADSbar, bidir, X, 182, 0, Z),"  &
+	"184  (BC_2, *, control, 0),"  &
+	"185  (BC_6, BHEbar, bidir, X, 184, 0, Z),"  &
+	"186  (BC_2, *, control, 0),"  &
+	"187  (BC_6, BLEbar, bidir, X, 186, 0, Z),"  &
+	"188  (BC_2, *, control, 0),"  &
+	"189  (BC_6, WRbar, bidir, X, 188, 0, Z),"  &
+	"190  (BC_2, *, control, 0),"  &
+	"191  (BC_6, RDbar, bidir, X, 190, 0, Z),"  &
+	"192  (BC_2, *, control, 0),"  &
+	"193  (BC_6, BS8bar, bidir, X, 192, 0, Z),"  &
+	"194  (BC_2, *, control, 0),"  &
+	"195  (BC_6, READYbar, bidir, X, 194, 0, Z),"  &
+	"196  (BC_2, *, control, 0),"  &
+	"197  (BC_6, WXRbar, bidir, X, 196, 0, Z),"  &
+	"198  (BC_2, *, control, 0),"  &
+	"199  (BC_6, DXCbar, bidir, X, 198, 0, Z),"  &
+	"200  (BC_2, *, control, 0),"  &
+	"201  (BC_6, MXIObar, bidir, X, 200, 0, Z)";
+
+end i386_EX_Processor;
+
+
+
