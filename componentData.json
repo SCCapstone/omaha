@@ -223,7 +223,7 @@
             "manf": "Texas Instruments",
             "serial": "SN74LVC139A",
             "datasheet": ["resources/dsht/ivo/vid/U4_SN74LVC139A.pdf", "U4_SN74LVC139A.pdf"],
-            "detail": ""
+            "detail": "Detail"
         }
     }
 }
