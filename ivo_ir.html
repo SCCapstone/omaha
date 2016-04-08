@@ -1,8 +1,28 @@
-<head>
-  <title>iVotronic IR Sensor</title>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8" /><meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>iVotronic IR Sensor</title>
+        
+        <link rel="stylesheet" href="styles/main_ui.css" />
+        <link rel="stylesheet" href="styles/dataFields.css" />
+    </head>
 
-<body><p></p>
-  <a href="index.html">Return to homepage</a>
-  <hr />
-  <img src="ivo_ir.jpg" alt="">
+    <body>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        <p><a href="index.html">Home</a> &gt; <a href="ivo_main.html">iVotronic Main</a> &gt;</p>
+        <h1>Infrared Communications Assembly</h1>
+        <div style="float: left; width: 162px;">
+            <img src="resources/ivo/ir.jpg" />
+        </div>
+        <div style="float: right; width: 788px;">
+            <p id="title">Infrared Transceiver</p>
+            <p><span id="manu">Vishay Semiconductors</span>'s <span id="serial">TFDU4100</span></p>
+            <p>Datasheet: <a href="resources/dsht/peb/U7_TFDU4100.pdf">U7_TFDU4100.pdf</a></p>
+            <hr />
+            <p>The only interesting component on the infrared communications assembly of the iVotronic is this infrared transceiver; the only other component is a magnetic field switch that is triggered when the PEB is slotted into the recepticle. As with on the PEB, data that is sent and received by this transceiver is processed by an IrDA&tm; chip on the motherboard.</p>
+            <p>The image on the left shows both sides of the IR Comm. Assembly, with the bottom on the left and the top on the right. Notice how this assembly has two transeivers, one on each side. The bottom transceiver points into the PEB slot and exchanges information with the PEB's transceiver. Meanwhile, the top transceiver points out of the device, and we assume it serves some maintenance function: no magnetic field switch is coupled with the second component, so it is not meant for a PEB.</p>
+        </div>
+    </body>
+</html>

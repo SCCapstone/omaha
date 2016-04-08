@@ -1,17 +1,47 @@
-<head>
-  <title>iVotronic Sound Module</title>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>iVotronic Sound Assembly</title>
+        
+        <link rel="stylesheet" href="styles/main_ui.css" />
+        <link rel="stylesheet" href="styles/dataFields.css" />
+        
+        <script type="text/javascript" src="dataMgmt.js"></script>
+        <script type="text/javascript">
+            function getAUDInfo(component)
+            {
+                getInformation('ivoSound', component);
+            }
+        </script>
+    </head>
 
-<body>
-<map name="boardmap">
-    <area shape="rect" coords="451,288,568,395" href="https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/sound/U1_PIC16F874.pdf" alt="U1">
-    <area shape="rect" coords="724,451,768,480" href="https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/sound/U2_5355CUA.pdf" alt="U2">
-    <area shape="rect" coords="550,88,654,177" href="https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/sound/U3_LVC74A.pdf" alt="U3">
-    <area shape="rect" coords="422,479,576,557" href="https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/sound/U4_HC541.pdf" alt="U4">
-    <area shape="rect" coords="769,111,832,154" href="https://github.com/SCCapstone/omaha/blob/master/ivo/datasheets/sound/U5_LM4861M.pdf" alt="U5">
-  </map>
+    <body>
+        <map name="boardmap">
+            <area shape="rect" coords="192,  85, 302, 194" href="javascript:getAUDInfo('U1')" title="Microcontroller" />
+            <area shape="rect" coords="132, 300, 167, 341" href="javascript:getAUDInfo('U2')" title="Digital-to-Analog Controller" />
+            <area shape="rect" coords="376, 168, 431, 257" href="javascript:getAUDInfo('U3')" title="D-Flip-Flops" />
+            <area shape="rect" coords=" 66,  62, 157, 190" href="javascript:getAUDInfo('U4')" title="Octal Buffer/Line Driver" />
+            <area shape="rect" coords="372, 331, 425, 393" href="javascript:getAUDInfo('U5')" title="Audio Amplifier" />
+            <area shape="rect" coords="355,  50, 408, 157" href="javascript:getAUDInfo('Y1')" title="Clock" />
+        </map>
 
-  <a href="index.html">Return to homepage</a>
-  <hr />
-  <img src="ivo_sound.jpg" alt="" usemap="#boardmap">
-</body>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        
+        <p><a href="index.html">Home</a> &gt; <a href="ivo_main.html">iVotronic Main</a> &gt;</p>
+        <h1>iVotronic Sound Assembly</h1>
+        
+        <hr />
+        <div class="imageBox">
+            <img src="resources/ivo/sound.jpg" alt="" usemap="#boardmap">
+        </div>
+        <div class="infobox">
+            <p id="title">[Component]</p>
+            <p><span id="manu">[Manufacturer]</span>'s <span id="serial">[Serial number]</span></p>
+            <p>Datasheet: <a id="datasheet">[GitHub Link]</a></p>
+            <hr />
+            <p id="flavor">[Information]</p>
+        </div>
+    </body>
+</html>

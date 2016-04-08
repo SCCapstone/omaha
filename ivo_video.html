@@ -1,9 +1,41 @@
-<head>
-  <title>iVotronic Video Module</title>
-</head>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>iVotronic Video Assembly</title>
+        
+        <link rel="stylesheet" href="styles/main_ui.css" />
+        <link rel="stylesheet" href="styles/dataFields.css" />
+        
+        <script type="text/javascript" src="dataMgmt.js"></script>
+        <script type="text/javascript">
+            function getVIDInfo(component)
+            {
+                getInformation('ivoVideo', component);
+            }
+        </script>
+    </head>
 
-<body>
-  <a href="index.html">Return to homepage</a>
-  <hr />
-  <img src="ivo_video.jpg" alt="">
-</body>
+    <body>
+        <map name="boardmap">
+            <area shape="rect" coords="101, 108, 238, 241" href="javascript:getVIDInfo('U1_1')" title="LCD Controller" />
+            <area shape="rect" coords=" 91, 699, 184, 748" href="javascript:getVIDInfo('U1_2')" title="LCD Transmitter" />
+            <area shape="rect" coords="308,  54, 341, 110" href="javascript:getVIDInfo('U3')"   title="OR Gates" />
+            <area shape="rect" coords=" 21,  99,  60, 164" href="javascript:getVIDInfo('U4')"   title="2→4 Demux" />
+        </map>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        <p><a href="index.html">Home</a> &gt; <a href="ivo_main.html">iVotronic Main Board</a> &gt;</p>
+        <h1>iVotronic Video Assembly</h1>
+        <div style="float: left; width: 381px;">
+            <img src="resources/ivo/video.jpg" alt="Video Card" usemap="#boardmap">
+        </div>
+        <div style="float: right; width: 569px;">
+            <p id="title">[Component]</p>
+            <p><span id="manu">[Manufacturer]</span>'s <span id="serial">[Serial number]</span></p>
+            <p>Datasheet: <a id="datasheet">[GitHub Link]</a></p>
+            <hr />
+            <p id="flavor">[Information]</p>
+        </div>
+    </body>
+</html>
