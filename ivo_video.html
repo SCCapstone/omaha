@@ -27,6 +27,11 @@
         </div>
         <p><a href="index.html">Home</a> &gt; <a href="ivo_main.html">iVotronic Main Board</a> &gt;</p>
         <h1>iVotronic Video Assembly</h1>
+        <p>The iVotronic's video assembly is the component responsible for generating the machine's graphical user interface. The Epson graphics processor uses data it receives to generate the various components to display (shapes, text, and colors) which are sent to the LCD Transmitter that then encodes the information for display.</p>
+        <p>In addition to displaying information to the user, the display is also touch enabled, and while the driver assembly is the only interface between the motherboard and the display, we know that the Epson processor cannot process user input directly (as no mention is made on the chip's datasheet).Therefore, either ES&S is having the chip process input information ad-hoc, or the user input is simply being ferried through, unaltered, to the machine's CPU.</p>
+        <p>One design idiosyncrasy worth mentioning is that the assembly board has space on the underside for up to two memory chips; however, those slots were empty on our board.</p>
+        <p>You can click the yellow boxes in the image below for detailed information about the highlighted component.</p>
+        <hr />
         <div style="float: left; width: 381px;">
             <img src="resources/ivo/video.jpg" alt="Video Card" usemap="#boardmap">
         </div>

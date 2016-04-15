@@ -187,7 +187,7 @@
             "manf": "Generic",
             "serial": "crystal oscillator",
             "datasheet": ["#", "None"],
-            "detail": ""
+            "detail": "This oscillator provides the clock signal to synchronize the components on this sound board."
         }
     },
     
@@ -199,7 +199,7 @@
             "manf": "EPSON",
             "serial": "S1D13806F00A1",
             "datasheet": ["resources/dsht/ivo/vid/U1_S1D13806F00A1.pdf", "U1_S1D13806F00A1.pdf"],
-            "detail": ""
+            "detail": "The Graphics Controller is the most important component of the driver assembly. Using a variety of built-in shapes and colors and on-board text generation, the controller is able to generate the graphical components on-the-fly based on information sent to it by the voting machine's CPU.<br><br>NB: The datasheet provided is the only one we were able to find for this device's serial number; however, the component described therein is not the exact device here, but it is close-enough to get a general idea of what the component does."
         },
         "U1_2":
         {
@@ -207,7 +207,7 @@
             "manf": "National Semiconductor",
             "serial": "DS90C385A",
             "datasheet": ["resources/dsht/ivo/vid/U1_DS90C385A.pdf", "U1_DS90C385A.pdf"],
-            "detail": ""
+            "detail": "This transmitter acts as a Low-Voltage Differential Signaling (LVDS) interface between the graphics controller and the LCD's controlling circuitry. LVDS is simply a means of transmitting information over the copper wires that connect the display panel to the driver assembly."
         },
         "U3":
         {
@@ -215,7 +215,7 @@
             "manf": "Texas Instruments",
             "serial": "SN74LVC32A",
             "datasheet": ["resources/dsht/ivo/vid/U3_LVC32A.pdf", "U3_LVC32A.pdf"],
-            "detail": ""
+            "detail": "This device is simply a package of four OR gates that appears to help with setting or unsetting various binary flags used by the display controller. Some of the traces from this chip also connect to the empty memory chip slots on the board."
         },
         "U4":
         {
@@ -223,7 +223,7 @@
             "manf": "Texas Instruments",
             "serial": "SN74LVC139A",
             "datasheet": ["resources/dsht/ivo/vid/U4_SN74LVC139A.pdf", "U4_SN74LVC139A.pdf"],
-            "detail": "Detail"
+            "detail": "This chip is a standard 2-to-4 decoder, meaning that it outputs on one of 4 data lines depending on the two-bit input received."
         }
     }
 }
