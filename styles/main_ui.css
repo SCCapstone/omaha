@@ -1,17 +1,33 @@
 a {
-    color: rgb(0, 255, 255);
+    color: rgb(128, 0, 0);
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 body {
     width: 1000px;
     margin: auto;
 
-    background-color: rgb(0, 0, 255);
-    color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(32, 32, 32);
 
-    font-family: monospace;
+    font-family: serif;
     font-size: 12pt;
+}
+
+h1, h2, h3, h4 {
+    font-family: sans-serif;
+}
+
+h2, h3 {
+    padding-top: 12pt;
+}
+
+h4 {
+    padding-top: 8pt;
 }
 
 div.top-header {
