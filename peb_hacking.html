@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Hacking the PEB</title>
+        <link rel="stylesheet" href="styles/main_ui.css">
+    </head> 
+    <body>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        <h1>Hacking the PEB</h1>
+        <h3>Hardware Overview</h3>
+        <p>Once we were able to open the cases on everything, we quickly inventoried all of the interesting chips in the Portable Electronic Ballot (PEB) unit and began figuring out how components connected to each other.</p>
+        <p>The PEB is controlled by a PIC16 microcontroller, which is programmable through a set of programming pins which extend from the back of the PCB board.  A 7.37 MHz crystal oscillator serves as the central clock for the device, and is directly connected to the PIC16.</p>
+        <p>The PEB is powered during programming through the programming pins, but during normal operation runs off of an onboard 3.3V lithium battery soldered onto the back of the PCB board. To prevent the battery from running down during storage, a magnetic field switch is wired into the main power circuit, turning off the PEB when it is not slotted into a PEB cradle or iVotronic voting machine. A hand-held magnet was used during our testing to trick the PEB into powering on. It takes approximately 20-25 seconds for power to drain out of the circuits after a PEB is powered down.</p>
+        <p>The PIC16's SPI pins are wired to a 2 MB (16 Mbit) Flash memory chip. This chip serves as the primary offline storage unit for voting data during normal operations.</p>
+        <p>For communications, the PEB uses the IrDA infrared communications protocol suite. The infrared hardware is connected to the central clocking crystal through a D flip-flop, which steps down the clock rate by a factor of 4. The PIC16's UART TX/RX lines are wired directly to a Texas Instruments TIR1000 IrDA encoder/decoder unit. This unit translates incoming bytes into pulses of the correct duration for IrDA communications. To actually get the bits off the board, a bi-directional IrDA transceiver (connected to the encoder/decoder) is located near the bottom of the board.</p>
+
+        <h3>Our Setup</h3>
+        <p>We had 2 PEB units, courtesy of Dr. Buell, and used these for all of our work during this project.</p>
+        <p>Our toolkit contained:</p>
+        <ul>
+            <li><a href="http://dangerousprototypes.com/docs/Bus_Pirate">Bus Pirate v3.6</a> - A swiss-army-knife of embedded electronic tools. Able to understand SPI, I2C, UART, JTAG, and other embedded communication protocols.</li>
+            <li><a href="https://en.wikipedia.org/wiki/PICKit">PICKit 3</a> - A programmer unit for PIC-series microcontrollers.</li>
+            <li>Digital Multimeter - Used to probe the circuitry of the PEB, and to tell when IO pins were turned on.</li>
+            <li>A bar magnet - Used to turn on the PEB for testing.</li>
+            <li>Torx (security version) screwdriver bit - Used to open the PEB's plastic case (see <a href="disassembly.html">Disassembly Procedures</a>).</li>
+        </ul>
+
+        <h3>The Failed Hexdump</h3>
+        <p>We wanted to get a hexdump of the flash memory of the PIC16 in order to understand the ES&amp;S code. This meant that we needed a programmer/debugger unit compatible with the PIC16. We ordered a <a href="https://en.wikipedia.org/wiki/PICKit">PICKit3</a> unit off of eBay, and waited a week or two for it to ship in from Hong Kong, working on other aspects of the project while we waited.</p>
+        <p>Upon arrival, we hooked the PICKit up to the PEB and attempted to get our hexdump. Unfortunately, <a href="https://en.wikipedia.org/wiki/Code_protection">Code Protection</a> was enabled for this chip, which meant that our hex dump consisted almost entirely of <code>0xFF</code> bytes.</p>
+        <p>While we were disappointed that we wouldn't get to benefit from the ES &amp; S programmer's work, we decided to forge ahead anyway with our own programming efforts. This proved more difficult than expected.</p>
+
+        <h3>Programming the PIC16, part I</h3>
+        <p>The PIC16 is apparently an unloved member of the modern Microchip PIC family of processors. Few code samples exist online for this processor, compared to the hundreds to thousands of code libraries, samples, and tutorials available for its bigger brother, the PIC18. There were a handful of helpful code bits on the internet that we found, allowing us to write at least a simple 'blink' demo (powering up 1 of the IO pins for 1 second, and then turning the IO pin off for 1 second, in an infinite loop), and begin work on UART and SPI communications.</p>
+        <p>The chief problem for us was that our PIC16 had limited connectivity to the outside world. It was not meant to be debugged. The programming header pins on the back of the board are wired such that the PIC16 can be programmed, but cannot communicate back to the programmer unit. The UART pins needed for that communication are wired directly into the IrDA hardware, and are not wired to any easily accessible external interface. </p>
+        <p>After some experiments with the Bus Pirate, trying to spy on the UART pins by manually holding wires to them, we decided to do a sanity check.</p>
+
+        <h3>The Zombie PEB</h3>
+        <p>Thanks to earlier tests, we knew that at least one of the PEBs worked perfectly. This PEB had been set aside early on as a "golden" item, not to be messed with if possible. The other PEB had been designated our "work" PEB, and was the subject of much of our early testing.</p>
+        <p>When we finally decided to do a sanity check, we opened up the known-good PEB, and held the multimeter's probes to one of the UART pins, and the PIC16's ground pin. We observed a small voltage on the pin, which fluctuated frequently. We inferred this to mean the PIC16 was attempting to communicate over the UART lines.</p>
+        <p>We then took out our work PEB, and performed the same test after loading a blink demo on the PIC16 that should have lit up the UART pins. After many seconds (and several iterations of our code), we observed no voltage, and determined that the chip was very likely dead. The chip appeared fine to the programmer, but simply would not run.</p>
+
+        <h3>Programming the PIC16, part II</h3>
+        <p>We made a command decision to try programming the known-good PEB. We first tried a hexdump, just in case the Code Protection bit had not been enabled. As expected, Code Protection was on, so we moved on to programming the PIC16 with a 'blink' demo.</p>
+        <p>This proved successful, and we immediately attempted to move on to UART communications. However, due to the small voltages present on the UART lines, our Bus Pirate unit was not able to observe the communications.</p>
+        <p>We determined soon after that the IrDA encoder/decoder unit would not handle encapsulating data sent across the UART lines in the IrDA packet format. Its sole purpose was to get pulse timings correct. To send data as IrDA packets, we would have had to write our own IrDA protocol stack to handle encapsulating messages with the appropriate headers/trailers and checksums.</p>
+        <p>Due to time constraints, we did not explore this route.</p>
+
+        <h3>Final Results</h3>
+        <p>We were able to programmatically blink IO pins on and off, including the pins connected to the programming header. This means that future teams may be able to devise a setup to get bits off the PIC16. We however, did not have time to perfect this, but encourage future teams to explore this route, as well as the IrDA stack.</p>
+        
+        <hr />
+        
+        <p style="text-align: center">&lt; <a href="technical.html">Technical Details</a> | <a href="index">Top</a> | <a href="attack.html">Attack Vectors</a> &gt;</p>
+    </body> 
+</html> 

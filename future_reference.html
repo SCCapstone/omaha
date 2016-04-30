@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>Leaving the Project</title>
+        <link rel="stylesheet" href="styles/main_ui.css">
+    </head> 
+    <body>
+        <div class="top-header">
+            <h1>Project Omaha</h1>
+        </div>
+        <h1>For Future Reference</h1>
+        <p>Since all of our team are graduating seniors, we will not be able to continue work on this project. However, we do wish to leave some helpful tips and instructions to anyone following in our wake who wishes to continue the work.</p>
+
+        <h3>Programming the PEB</h3>
+
+        <h4>Wiring up the PEB</h4>
+        <p>A lot of trial and error went into wiring up the PICKit 3 to the PEB. Luckily, we found a working configuration. Note that the colors coming out of the PICKit are exactly the colors going into the PEB.</p>
+        <div style="float: left; margin-left: 100px; width: 333px;"><img src="resources/peb/wiring_pickit-peb.jpg" alt="PICKit-to-PEB Wiring" title="PICKit-to-PEB Wiring" /></div>
+        <div style="float: right; margin-right: 100px; width: 400px;">
+            <p>For the curious, the colors correspond to the following input/outputs:</p>
+            <ul>
+                <li>Yellow: target power (V<sub>DD</sub>)</li>
+                <li>Green: ground (V<sub>SS</sub>)</li>
+                <li>Gray: ICSP low-voltage programming pin</li>
+                <li>Violet: ICSP clock line</li>
+                <li>Orange: V<sub>PP</sub>, Programming mode voltage</li>
+                <li>Blue: ICSP data line</li>
+            </ul>
+        </div>
+        <p style="clear: both; padding-top: 8pt;">Once you've matched up all the pins, the PICKit3 should work like a charm.</p>
+
+        <h4>Programming Environment</h4>
+        <p>We used <a href="http://www.microchip.com/mplab/mplab-x-ide">MPLABX</a>, a free IDE from Microchip. It is available at the time of this writing for Windows, Mac, and Linux. The authors have installed and used it successfully on Windows 7 and Linux. 64-bit Linux users should be aware that some 32-bit compatibility libraries may need to be installed before the IDE will install successfully.</p>
+        <p>The IDE provides settings options for the PICKit3. We chose to perform programming at 4.75V, since this was the lowest voltage the PEB's PIC16 seemed to respond to during our experiments.</p>
+
+        <h3>Future work for the PEB</h3>
+        <p>We proved that an information-disclosure attack was <em>possible</em> for the PEB, but we did not implement that attack fully, due to time constraints. Future directions for work with the PEB might include:</p>
+        <ul>
+            <li><strong>Implement an IrDA protocol stack.</strong> This would allow use of standard IrDA hardware and tools with the PEB.</li>
+            <li><strong>Implement some sort of <a href="https://en.wikipedia.org/wiki/Bit_banging">bit-banging</a> protocol.</strong> This would allow the PIC16 to communicate through its programming header pins with the outside world.</li>
+        </ul>
+        <p>Once communications are working, directions for progress might include:</p>
+        <ul>
+            <li><strong>Obtaining a hexdump of the flash memory's contents.</strong> This would require the PIC16 to communicate via SPI with the flash memory chip, then send the bits via one of the communications options.</li>
+            <li><strong>Reverse-engineering the PEB/iVotronic infrared protocol.</strong> According to the Everest and USENIX reports, this protocol is not terribly complex, so it may be possible to reverse engineer, given time and tools.</li>
+        </ul>
+
+        <h3>Future work for the iVotronic</h3>
+        <p>Future directions for work with the iVotronic might include:</p>
+        <ul>
+            <li><strong>Working directly with the 2 MB memory modules.</strong> This might require special breadboards, as the pins are more narrowly spaced than the spacing of most commonly available breadboards. They can probably be communicated with over SPI.</li>
+            <li><strong>JTAG interface / OpenOCD configuration.</strong> We include in the repo an early version of an OpenOCD configuration file for use in JTAG'ing the iVotronic. Unfortunately, since we didn't know the scan-chain length, we were not able to make much progress on this. The config file is based strongly on what we were able to find in Intel's BSDL files for the i386EX. Getting JTAG working would allow tinkering/debugging the iVotronic.</li>
+        </ul>
+        
+        <hr />
+        
+        <p style="text-align: center">&lt; <a href="attack.html">Possible Attack Vectors</a> | <a href="index.html">Top</a> | Nothing &gt;</p>
+    </body> 
+</html> 
